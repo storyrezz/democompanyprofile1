@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT. CAHAYA TERANG — Membangun Kepercayaan, Menghadirkan Solusi Berkualitas</title>
+    <!-- Meta Description -->
+    <meta name="description" content="PT. CAHAYA TERANG hadir untuk membantu memenuhi kebutuhan bisnis Anda melalui pelayanan profesional, komitmen terhadap kualitas, dan hubungan kerja sama yang berkelanjutan.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0B132B',       /* Deep Navy Blue Base */
+                        warmIvory: '#F8FAFC',      /* Bright Slate/White Base */
+                        burntOrange: '#D97706',    /* Warm Dark Yellow/Amber Accent */
+                        brightEmber: '#EAB308',    /* Primary Electric Yellow Accent */
+                        graphite: '#1E293B',       /* Navy Gray Container Base */
+                        mutedStone: '#94A3B8',     /* Soft Muted Slate Text */
+                        pureWhite: '#FFFFFF',      /* Pure White */
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F8FAFC;
+            color: #0B132B;
+            overflow-x: hidden;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8FAFC;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94A3B8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #EAB308;
+        }
+
+        /* Subtle Fade In Scroll Animations */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-element.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Ambient Glow Pulse */
+        @keyframes ambientPulse {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.35; transform: scale(1.08); }
+        }
+        .animate-glow {
+            animation: ambientPulse 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-warmIvory text-obsidian antialiased selection:bg-brightEmber selection:text-obsidian">
+
+    <!-- ================= HEADER & NAVBAR ================= -->
+    <header class="sticky top-0 z-50 bg-obsidian/95 backdrop-blur-md border-b border-graphite/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Wordmark -->
+                <div class="flex-shrink-0">
+                    <a href="#beranda" class="text-pureWhite font-extrabold text-lg lg:text-xl tracking-wider flex items-center space-x-2 group">
+                        <span class="w-3 h-3 bg-brightEmber rounded-sm inline-block group-hover:scale-125 transition-transform"></span>
+                        <span>PT. CAHAYA TERANG</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-warmIvory/80">
+                    <a href="#beranda" class="hover:text-brightEmber transition-colors">Beranda</a>
+                    <a href="#tentang" class="hover:text-brightEmber transition-colors">Tentang Kami</a>
+                    <a href="#layanan" class="hover:text-brightEmber transition-colors">Layanan</a>
+                    <a href="#portofolio" class="hover:text-brightEmber transition-colors">Proyek</a>
+                    <a href="#galeri" class="hover:text-brightEmber transition-colors">Galeri</a>
+                    <a href="#artikel" class="hover:text-brightEmber transition-colors">Artikel</a>
+                    <a href="#kontak" class="hover:text-brightEmber transition-colors">Kontak</a>
+                </nav>
+
+                <!-- Desktop CTA -->
+                <div class="hidden lg:flex items-center">
+                    <a href="#kontak" class="px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-obsidian bg-brightEmber hover:bg-yellow-400 transition-all rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                        Hubungi Kami
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="flex lg:hidden">
+                    <button onclick="toggleMobileMenu()" class="p-2 text-pureWhite focus:outline-none" aria-label="Menu">
+                        <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-obsidian border-b border-graphite/80 px-6 py-6 space-y-4 shadow-2xl">
+            <a href="#beranda" onclick="toggleMobileMenu()" class="block text-sm font-medium text-warmIvory hover:text-brightEmber">Beranda</a>
+            <a href="#tentang" onclick="toggleMobileMenu()" class="block text-sm font-medium text-warmIvory hover:text-brightEmber">Tentang Kami</a>
+            <a href="#layanan" onclick="toggleMobileMenu()" class="block text-sm font-medium text-warmIvory hover:text-brightEmber">Layanan</a>
+            <a href="#portofolio" onclick="toggleMobileMenu()" class="block text-sm font-medium text-warmIvory hover:text-brightEmber">Proyek</a>
+            <a href="#galeri" onclick="toggleMobileMenu()" class="block text-sm font-medium text-warmIvory hover:text-brightEmber">Galeri</a>
+            <a href="#artikel" onclick="toggleMobileMenu()" class="block text-sm font-medium text-warmIvory hover:text-brightEmber">Artikel</a>
+            <a href="#kontak" onclick="toggleMobileMenu()" class="block text-sm font-medium text-warmIvory hover:text-brightEmber">Kontak</a>
+            <div class="pt-2">
+                <a href="#kontak" onclick="toggleMobileMenu()" class="block text-center py-3 text-xs font-bold uppercase tracking-wider text-obsidian bg-brightEmber rounded-lg">
+                    Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= HERO SECTION (DARK BLUE BASE) ================= -->
+    <section id="beranda" class="relative bg-obsidian text-pureWhite py-20 lg:py-32 overflow-hidden border-b border-graphite/80">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#EAB308_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left reveal-element">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 bg-graphite border border-graphite/80 rounded-full shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-brightEmber animate-pulse"></span>
+                        <span class="text-xs font-bold tracking-widest uppercase text-brightEmber">Mitra Bisnis Terpercaya</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-pureWhite leading-[1.15]">
+                        Membangun Kepercayaan,<br>
+                        <span class="text-brightEmber">Menghadirkan Solusi Berkualitas.</span>
+                    </h1>
+
+                    <p class="text-mutedStone text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        PT. CAHAYA TERANG hadir untuk membantu memenuhi kebutuhan bisnis Anda melalui pelayanan profesional, komitmen terhadap kualitas, dan hubungan kerja sama yang berkelanjutan.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#tentang" class="w-full sm:w-auto px-8 py-4 text-xs font-bold uppercase tracking-wider text-obsidian bg-brightEmber hover:bg-yellow-400 transition-all text-center rounded-lg shadow-md hover:-translate-y-0.5">
+                            Kenali Perusahaan
+                        </a>
+                        <a href="#kontak" class="w-full sm:w-auto px-8 py-4 text-xs font-bold uppercase tracking-wider text-warmIvory bg-graphite border border-graphite/80 hover:border-brightEmber transition-all text-center rounded-lg flex items-center justify-center space-x-2 hover:-translate-y-0.5">
+                            <span>Konsultasi Sekarang</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-graphite/80 text-center lg:text-left">
+                        <div>
+                            <span class="block text-pureWhite font-bold text-sm">Profesionalisme</span>
+                            <span class="text-xs text-mutedStone">Standar Kerja Tinggi</span>
+                        </div>
+                        <div>
+                            <span class="block text-pureWhite font-bold text-sm">Kualitas Layanan</span>
+                            <span class="text-xs text-mutedStone">Berorientasi Hasil</span>
+                        </div>
+                        <div>
+                            <span class="block text-pureWhite font-bold text-sm">Komitmen Kerja</span>
+                            <span class="text-xs text-mutedStone">Jangka Panjang</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right Image -->
+                <div class="lg:col-span-5 flex justify-center reveal-element">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -inset-2 bg-brightEmber/20 rounded-3xl blur-xl animate-glow"></div>
+                        <div class="relative bg-graphite border border-graphite/80 rounded-3xl p-3 shadow-2xl">
+                            <div class="relative w-full h-[400px] sm:h-[450px] rounded-2xl overflow-hidden bg-obsidian group">
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=900" 
+                                     alt="Corporate Office Building PT. Cahaya Terang" 
+                                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TENTANG KAMI (LIGHT BASE) ================= -->
+    <section id="tentang" class="py-24 bg-warmIvory border-b border-mutedStone/30">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Image -->
+                <div class="lg:col-span-6 reveal-element">
+                    <div class="relative rounded-3xl overflow-hidden shadow-md border border-mutedStone/30 bg-pureWhite p-3 group">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=900" 
+                             alt="Tim Profesional PT. Cahaya Terang" 
+                             class="w-full h-[380px] sm:h-[440px] object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+
+                <!-- Right Description -->
+                <div class="lg:col-span-6 space-y-6 reveal-element">
+                    <span class="text-xs uppercase tracking-[0.25em] text-brightEmber font-bold block">Tentang PT. CAHAYA TERANG</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-obsidian tracking-tight">
+                        Komitmen dan Integritas dalam Setiap Layanan
+                    </h2>
+                    <p class="text-graphite text-base leading-relaxed">
+                        PT. CAHAYA TERANG merupakan perusahaan yang berkomitmen memberikan pelayanan dan solusi yang berorientasi pada kebutuhan pelanggan. Dengan mengutamakan profesionalisme, komunikasi yang baik, serta kualitas kerja, kami terus membangun hubungan bisnis yang dilandasi kepercayaan dan tanggung jawab.
+                    </p>
+
+                    <!-- Visi Misi Box -->
+                    <div class="space-y-4 pt-2">
+                        <div class="p-5 bg-pureWhite rounded-2xl border border-mutedStone/30 shadow-sm space-y-2 hover:border-brightEmber transition-colors">
+                            <h3 class="font-bold text-sm text-obsidian flex items-center space-x-2">
+                                <i class="fa-solid fa-bullseye text-brightEmber"></i>
+                                <span>Visi Perusahaan</span>
+                            </h3>
+                            <p class="text-xs text-graphite leading-relaxed">
+                                Menjadi perusahaan yang dipercaya melalui kualitas pelayanan, inovasi, dan hubungan kerja sama yang berkelanjutan.
+                            </p>
+                        </div>
+
+                        <div class="p-5 bg-pureWhite rounded-2xl border border-mutedStone/30 shadow-sm space-y-2 hover:border-brightEmber transition-colors">
+                            <h3 class="font-bold text-sm text-obsidian flex items-center space-x-2">
+                                <i class="fa-solid fa-list-check text-brightEmber"></i>
+                                <span>Misi Utama</span>
+                            </h3>
+                            <ul class="text-xs text-graphite space-y-1.5 list-disc pl-4">
+                                <li>Memberikan pelayanan yang profesional dan bertanggung jawab.</li>
+                                <li>Mengutamakan kualitas serta kepuasan pelanggan.</li>
+                                <li>Membangun kemitraan bisnis yang saling menguntungkan.</li>
+                                <li>Mengembangkan kemampuan dan kualitas kerja secara berkelanjutan.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= KEUNGGULAN PERUSAHAAN (DARK BASE) ================= -->
+    <section class="py-20 bg-obsidian text-pureWhite border-b border-graphite/80">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-xl mx-auto mb-16 space-y-3 reveal-element">
+                <span class="text-xs uppercase tracking-[0.25em] text-brightEmber font-bold">Mengapa Memilih Kami</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Landasan Kepercayaan Klien</h2>
+                <p class="text-mutedStone text-sm">Standar operasional dan komitmen yang selalu kami pegang teguh.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Poin 1 -->
+                <div class="p-6 bg-graphite border border-graphite/80 rounded-2xl space-y-3 hover:border-brightEmber transition-all hover:-translate-y-1 shadow-sm hover:shadow-lg reveal-element">
+                    <div class="w-12 h-12 rounded-xl bg-brightEmber/10 flex items-center justify-center text-brightEmber text-xl font-bold">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Profesional</h3>
+                    <p class="text-xs text-mutedStone leading-relaxed">Mengutamakan standar kerja dan komunikasi yang baik dalam setiap penanganan proyek.</p>
+                </div>
+
+                <!-- Poin 2 -->
+                <div class="p-6 bg-graphite border border-graphite/80 rounded-2xl space-y-3 hover:border-brightEmber transition-all hover:-translate-y-1 shadow-sm hover:shadow-lg reveal-element">
+                    <div class="w-12 h-12 rounded-xl bg-brightEmber/10 flex items-center justify-center text-brightEmber text-xl font-bold">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Terpercaya</h3>
+                    <p class="text-xs text-mutedStone leading-relaxed">Menjunjung transparansi, integritas, dan tanggung jawab penuh terhadap kepercayaan klien.</p>
+                </div>
+
+                <!-- Poin 3 -->
+                <div class="p-6 bg-graphite border border-graphite/80 rounded-2xl space-y-3 hover:border-brightEmber transition-all hover:-translate-y-1 shadow-sm hover:shadow-lg reveal-element">
+                    <div class="w-12 h-12 rounded-xl bg-brightEmber/10 flex items-center justify-center text-brightEmber text-xl font-bold">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Berorientasi Pelanggan</h3>
+                    <p class="text-xs text-mutedStone leading-relaxed">Memahami kebutuhan spesifik Anda dan memberikan solusi yang tepat serta efisien.</p>
+                </div>
+
+                <!-- Poin 4 -->
+                <div class="p-6 bg-graphite border border-graphite/80 rounded-2xl space-y-3 hover:border-brightEmber transition-all hover:-translate-y-1 shadow-sm hover:shadow-lg reveal-element">
+                    <div class="w-12 h-12 rounded-xl bg-brightEmber/10 flex items-center justify-center text-brightEmber text-xl font-bold">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Komitmen Kualitas</h3>
+                    <p class="text-xs text-mutedStone leading-relaxed">Mengutamakan hasil kerja yang konsisten, terukur, dan memenuhi standar kualitas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= LAYANAN PERUSAHAAN (LIGHT BASE) ================= -->
+    <section id="layanan" class="py-24 bg-warmIvory border-b border-mutedStone/30">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-xl mx-auto mb-16 space-y-3 reveal-element">
+                <span class="text-xs uppercase tracking-[0.25em] text-brightEmber font-bold">Solusi Bisnis</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-obsidian tracking-tight">Solusi untuk Kebutuhan Bisnis Anda</h2>
+                <p class="text-graphite text-sm">Pilihan layanan profesional yang dirancang khusus untuk mendukung perkembangan usaha Anda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Layanan 1 -->
+                <div class="bg-pureWhite border border-mutedStone/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 reveal-element">
+                    <div class="relative h-48 overflow-hidden bg-obsidian">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800" alt="Layanan Profesional" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-xl text-obsidian mb-2">Layanan Profesional</h3>
+                            <p class="text-graphite text-xs leading-relaxed">Pendampingan dan dukungan tenaga ahli berpengalaman untuk memastikan kelancaran operasional bisnis Anda.</p>
+                        </div>
+                        <div class="pt-4 border-t border-mutedStone/20">
+                            <button onclick="openDetailModal('layanan', 'Layanan Profesional', 'Pendampingan dan dukungan tenaga ahli berpengalaman untuk memastikan kelancaran operasional bisnis Anda.', 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800')" class="text-xs font-bold uppercase tracking-wider text-brightEmber hover:text-obsidian transition-colors flex items-center space-x-2">
+                                <span>Pelajari Lebih Lanjut</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layanan 2 -->
+                <div class="bg-pureWhite border border-mutedStone/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 reveal-element">
+                    <div class="relative h-48 overflow-hidden bg-obsidian">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800" alt="Solusi Bisnis" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-xl text-obsidian mb-2">Solusi Bisnis</h3>
+                            <p class="text-graphite text-xs leading-relaxed">Strategi dan implementasi terintegrasi untuk memperkuat posisi kompetitif perusahaan Anda di pasaran.</p>
+                        </div>
+                        <div class="pt-4 border-t border-mutedStone/20">
+                            <button onclick="openDetailModal('layanan', 'Solusi Bisnis', 'Strategi dan implementasi terintegrasi untuk memperkuat posisi kompetitif perusahaan Anda di pasaran.', 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800')" class="text-xs font-bold uppercase tracking-wider text-brightEmber hover:text-obsidian transition-colors flex items-center space-x-2">
+                                <span>Pelajari Lebih Lanjut</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layanan 3 -->
+                <div class="bg-pureWhite border border-mutedStone/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 reveal-element">
+                    <div class="relative h-48 overflow-hidden bg-obsidian">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800" alt="Pengadaan dan Kebutuhan Usaha" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-xl text-obsidian mb-2">Pengadaan & Kebutuhan Usaha</h3>
+                            <p class="text-graphite text-xs leading-relaxed">Layanan pengadaan barang dan kebutuhan pendukung operasional perusahaan secara efisien dan tepat waktu.</p>
+                        </div>
+                        <div class="pt-4 border-t border-mutedStone/20">
+                            <button onclick="openDetailModal('layanan', 'Pengadaan & Kebutuhan Usaha', 'Layanan pengadaan barang dan kebutuhan pendukung operasional perusahaan secara efisien dan tepat waktu.', 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800')" class="text-xs font-bold uppercase tracking-wider text-brightEmber hover:text-obsidian transition-colors flex items-center space-x-2">
+                                <span>Pelajari Lebih Lanjut</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layanan 4 -->
+                <div class="bg-pureWhite border border-mutedStone/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 reveal-element">
+                    <div class="relative h-48 overflow-hidden bg-obsidian">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" alt="Konsultasi dan Pendampingan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-xl text-obsidian mb-2">Konsultasi & Pendampingan</h3>
+                            <p class="text-graphite text-xs leading-relaxed">Sesi konsultasi mendalam untuk memecahkan tantangan bisnis dan merumuskan langkah pengembangan.</p>
+                        </div>
+                        <div class="pt-4 border-t border-mutedStone/20">
+                            <button onclick="openDetailModal('layanan', 'Konsultasi & Pendampingan', 'Sesi konsultasi mendalam untuk memecahkan tantangan bisnis dan merumuskan langkah pengembangan.', 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800')" class="text-xs font-bold uppercase tracking-wider text-brightEmber hover:text-obsidian transition-colors flex items-center space-x-2">
+                                <span>Pelajari Lebih Lanjut</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layanan 5 -->
+                <div class="bg-pureWhite border border-mutedStone/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 reveal-element">
+                    <div class="relative h-48 overflow-hidden bg-obsidian">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800" alt="Kemitraan Bisnis" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-xl text-obsidian mb-2">Kemitraan Bisnis</h3>
+                            <p class="text-graphite text-xs leading-relaxed">Membangun aliansi strategis yang saling menguntungkan untuk memperluas jangkauan operasional.</p>
+                        </div>
+                        <div class="pt-4 border-t border-mutedStone/20">
+                            <button onclick="openDetailModal('layanan', 'Kemitraan Bisnis', 'Membangun aliansi strategis yang saling menguntungkan untuk memperluas jangkauan operasional.', 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800')" class="text-xs font-bold uppercase tracking-wider text-brightEmber hover:text-obsidian transition-colors flex items-center space-x-2">
+                                <span>Pelajari Lebih Lanjut</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layanan 6 -->
+                <div class="bg-pureWhite border border-mutedStone/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 reveal-element">
+                    <div class="relative h-48 overflow-hidden bg-obsidian">
+                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800" alt="Layanan Pelanggan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-xl text-obsidian mb-2">Layanan Pelanggan</h3>
+                            <p class="text-graphite text-xs leading-relaxed">Dukungan responsif dan ramah untuk memastikan setiap pertanyaan dan kebutuhan tertangani dengan baik.</p>
+                        </div>
+                        <div class="pt-4 border-t border-mutedStone/20">
+                            <button onclick="openDetailModal('layanan', 'Layanan Pelanggan', 'Dukungan responsif dan ramah untuk memastikan setiap pertanyaan dan kebutuhan tertangani dengan baik.', 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=800')" class="text-xs font-bold uppercase tracking-wider text-brightEmber hover:text-obsidian transition-colors flex items-center space-x-2">
+                                <span>Pelajari Lebih Lanjut</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PORTOFOLIO & PROYEK (DARK BASE) ================= -->
+    <section id="portofolio" class="py-24 bg-obsidian text-pureWhite border-b border-graphite/80">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-xl mx-auto mb-16 space-y-3 reveal-element">
+                <span class="text-xs uppercase tracking-[0.25em] text-brightEmber font-bold">Pengalaman Kerja</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Portofolio dan Proyek</h2>
+                <p class="text-mutedStone text-sm">Contoh proyek dan dokumentasi pekerjaan yang mencerminkan kualitas standar kami.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Proyek 1 -->
+                <div class="bg-graphite border border-graphite/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 reveal-element group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Contoh Proyek 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-obsidian/95 text-brightEmber px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md border border-graphite/80">Sample Project</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-bold text-xl text-pureWhite">Pengembangan Operasional Korporat</h3>
+                        <p class="text-mutedStone text-xs leading-relaxed">Pendampingan restrukturisasi sistem kerja dan manajemen logistik untuk efisiensi menyeluruh.</p>
+                        <div class="pt-2">
+                            <button onclick="openDetailModal('proyek', 'Pengembangan Operasional Korporat', 'Pendampingan restrukturisasi sistem kerja dan manajemen logistik untuk efisiensi menyeluruh di perusahaan mitra.', 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800')" class="text-xs font-bold text-brightEmber hover:text-warmIvory transition-colors">Lihat Detail →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyek 2 -->
+                <div class="bg-graphite border border-graphite/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 reveal-element group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=800" alt="Contoh Proyek 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-obsidian/95 text-brightEmber px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md border border-graphite/80">Sample Project</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-bold text-xl text-pureWhite">Konsultasi Kemitraan Strategis</h3>
+                        <p class="text-mutedStone text-xs leading-relaxed">Fasilitasi kerja sama lintas sektor untuk memperluas jaringan bisnis dan distribusi.</p>
+                        <div class="pt-2">
+                            <button onclick="openDetailModal('proyek', 'Konsultasi Kemitraan Strategis', 'Fasilitasi kerja sama lintas sektor untuk memperluas jaringan bisnis dan distribusi nasional.', 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=800')" class="text-xs font-bold text-brightEmber hover:text-warmIvory transition-colors">Lihat Detail →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyek 3 (Updated with high quality warehouse/logistics photo) -->
+                <div class="bg-graphite border border-graphite/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 reveal-element group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800" alt="Pengadaan & Manajemen Logistik" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-obsidian/95 text-brightEmber px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md border border-graphite/80">Sample Project</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-bold text-xl text-pureWhite">Pengadaan & Manajemen Logistik</h3>
+                        <p class="text-mutedStone text-xs leading-relaxed">Penyediaan kebutuhan operasional berskala besar dengan sistem pengawasan rantai pasok terintegrasi.</p>
+                        <div class="pt-2">
+                            <button onclick="openDetailModal('proyek', 'Pengadaan & Manajemen Logistik', 'Penyediaan kebutuhan operasional berskala besar dengan sistem pengawasan mutu yang ketat, pengelolaan rantai pasok modern, serta pengiriman tepat waktu.', 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800')" class="text-xs font-bold text-brightEmber hover:text-warmIvory transition-colors">Lihat Detail →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= GALERI FOTO (LIGHT BASE) ================= -->
+    <section id="galeri" class="py-24 bg-warmIvory border-b border-mutedStone/30">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-xl mx-auto mb-16 space-y-3 reveal-element">
+                <span class="text-xs uppercase tracking-[0.25em] text-brightEmber font-bold">Dokumentasi</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-obsidian tracking-tight">Galeri Perusahaan</h2>
+                <p class="text-graphite text-sm">Suasana kerja, aktivitas tim, dan dokumentasi operasional PT. Cahaya Terang.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="relative h-48 sm:h-64 rounded-2xl overflow-hidden shadow-sm group reveal-element">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800" alt="Aktivitas Perusahaan 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="relative h-48 sm:h-64 rounded-2xl overflow-hidden shadow-sm group reveal-element">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800" alt="Lingkungan Kerja" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="relative h-48 sm:h-64 rounded-2xl overflow-hidden shadow-sm group reveal-element">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Tim dan Kolaborasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="relative h-48 sm:h-64 rounded-2xl overflow-hidden shadow-sm group reveal-element">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800" alt="Kegiatan Operasional" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TESTIMONI PELANGGAN (DARK BASE) ================= -->
+    <section class="py-24 bg-obsidian text-pureWhite border-b border-graphite/80">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-xl mx-auto mb-16 space-y-3 reveal-element">
+                <span class="text-xs uppercase tracking-[0.25em] text-brightEmber font-bold">Ulasan Mitra</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Testimoni Pelanggan</h2>
+                <p class="text-mutedStone text-sm">Apa kata mitra kerja mengenai pengalaman bekerja sama dengan PT. Cahaya Terang.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimoni 1 -->
+                <div class="p-8 bg-graphite rounded-2xl border border-graphite/80 space-y-4 shadow-sm hover:border-brightEmber transition-colors reveal-element">
+                    <div class="flex text-amber-500 space-x-1 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-mutedStone text-xs leading-relaxed italic">
+                        “Pelayanan sangat profesional dan komunikatif. Setiap arahan dan pengerjaan selalu diselesaikan tepat waktu sesuai komitmen.”
+                    </p>
+                    <div class="pt-3 border-t border-graphite/80">
+                        <span class="font-bold text-xs text-pureWhite block">[Nama Mitra Contoh]</span>
+                        <span class="text-[10px] text-mutedStone">Pimpinan Perusahaan Rekanan</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 2 -->
+                <div class="p-8 bg-graphite rounded-2xl border border-graphite/80 space-y-4 shadow-sm hover:border-brightEmber transition-colors reveal-element">
+                    <div class="flex text-amber-500 space-x-1 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-mutedStone text-xs leading-relaxed italic">
+                        “Solusi bisnis yang diberikan sangat membantu efisiensi operasional kami. Sangat direkomendasikan sebagai mitra kerja jangka panjang.”
+                    </p>
+                    <div class="pt-3 border-t border-graphite/80">
+                        <span class="font-bold text-xs text-pureWhite block">[Nama Mitra Contoh]</span>
+                        <span class="text-[10px] text-mutedStone">Direktur Operasional</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 3 -->
+                <div class="p-8 bg-graphite rounded-2xl border border-graphite/80 space-y-4 shadow-sm hover:border-brightEmber transition-colors reveal-element">
+                    <div class="flex text-amber-500 space-x-1 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-mutedStone text-xs leading-relaxed italic">
+                        “Respons cepat dan hasil kerja yang memuaskan. PT. Cahaya Terang benar-benar menjaga standar profesionalisme yang tinggi.”
+                    </p>
+                    <div class="pt-3 border-t border-graphite/80">
+                        <span class="font-bold text-xs text-pureWhite block">[Nama Mitra Contoh]</span>
+                        <span class="text-[10px] text-mutedStone">Manajer Pengadaan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ARTIKEL & INFORMASI (LIGHT BASE) ================= -->
+    <section id="artikel" class="py-24 bg-warmIvory border-b border-mutedStone/30">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-xl mx-auto mb-16 space-y-3 reveal-element">
+                <span class="text-xs uppercase tracking-[0.25em] text-brightEmber font-bold">Wawasan & Berita</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-obsidian tracking-tight">Artikel & Informasi</h2>
+                <p class="text-graphite text-sm">Tips bisnis, panduan memilih mitra, dan wawasan seputar dunia usaha.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Artikel 1 -->
+                <div class="bg-pureWhite border border-mutedStone/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 reveal-element group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="Artikel 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-[10px] font-bold text-brightEmber uppercase tracking-wider">Tips Bisnis</span>
+                        <h3 class="font-bold text-lg text-obsidian">Tips Memilih Mitra Bisnis yang Tepat dan Kredibel</h3>
+                        <p class="text-graphite text-xs leading-relaxed">Menilai integritas, rekam jejak, dan keselarasan visi sebelum memulai kerja sama korporat.</p>
+                        <div class="pt-2">
+                            <button onclick="openDetailModal('artikel', 'Tips Memilih Mitra Bisnis yang Tepat dan Kredibel', 'Menilai integritas, rekam jejak, dan keselarasan visi sebelum memulai kerja sama korporat agar tercapai tujuan bisnis jangka panjang.', 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800')" class="text-xs font-bold text-brightEmber hover:underline">Baca Selengkapnya →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artikel 2 -->
+                <div class="bg-pureWhite border border-mutedStone/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 reveal-element group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800" alt="Artikel 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-[10px] font-bold text-brightEmber uppercase tracking-wider">Manajemen</span>
+                        <h3 class="font-bold text-lg text-obsidian">Pentingnya Kualitas dalam Pelayanan Jangka Panjang</h3>
+                        <p class="text-graphite text-xs leading-relaxed">Bagaimana menjaga konsistensi mutu pelayanan untuk mempertahankan kepercayaan klien.</p>
+                        <div class="pt-2">
+                            <button onclick="openDetailModal('artikel', 'Pentingnya Kualitas dalam Pelayanan Jangka Panjang', 'Bagaimana menjaga konsistensi mutu pelayanan untuk mempertahankan kepercayaan klien secara berkelanjutan dalam dunia persaingan industri.', 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800')" class="text-xs font-bold text-brightEmber hover:underline">Baca Selengkapnya →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artikel 3 -->
+                <div class="bg-pureWhite border border-mutedStone/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 reveal-element group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800" alt="Artikel 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-[10px] font-bold text-brightEmber uppercase tracking-wider">Strategi</span>
+                        <h3 class="font-bold text-lg text-obsidian">Membangun Kerja Sama Bisnis yang Berkelanjutan</h3>
+                        <p class="text-graphite text-xs leading-relaxed">Kunci utama dalam merajut kemitraan bisnis yang saling menguntungkan dan langgeng.</p>
+                        <div class="pt-2">
+                            <button onclick="openDetailModal('artikel', 'Membangun Kerja Sama Bisnis yang Berkelanjutan', 'Kunci utama dalam merajut kemitraan bisnis yang saling menguntungkan dan langgeng melintasi berbagai dinamika pasar.', 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800')" class="text-xs font-bold text-brightEmber hover:underline">Baca Selengkapnya →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FORMULIR & INFORMASI KONTAK (DARK BASE) ================= -->
+    <section id="kontak" class="py-24 bg-obsidian text-pureWhite">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Info Kontak -->
+                <div class="lg:col-span-5 space-y-8 reveal-element">
+                    <div>
+                        <span class="text-xs uppercase tracking-[0.25em] text-brightEmber font-bold block mb-2">Hubungi Kami</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Mari Berdiskusi dan Bekerja Sama</h2>
+                        <p class="text-mutedStone text-sm mt-3 leading-relaxed">
+                            Hubungi tim PT. Cahaya Terang untuk konsultasi layanan, pertanyaan seputar proyek, atau pembahasan kemitraan usaha.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6 text-sm">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-graphite flex items-center justify-center text-brightEmber flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-pureWhite">Alamat Kantor</h4>
+                                <p class="text-mutedStone text-xs mt-1">Gedung Perkantoran Cahaya Tower, Lt. 5, Jakarta, Indonesia</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-graphite flex items-center justify-center text-brightEmber flex-shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-pureWhite">Email Resmi</h4>
+                                <p class="text-mutedStone text-xs mt-1">info@cahayaterang.co.id</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-graphite flex items-center justify-center text-brightEmber flex-shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-pureWhite">Telepon / WhatsApp</h4>
+                                <p class="text-mutedStone text-xs mt-1">+62 21 5555 8888 / +62 812 3456 7890</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Kontak -->
+                <div class="lg:col-span-7 bg-graphite border border-graphite/80 rounded-3xl p-8 shadow-xl reveal-element">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                        <div id="form-alert" class="hidden p-4 rounded-xl text-xs font-semibold"></div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-mutedStone mb-2">Nama Lengkap</label>
+                                <input type="text" required placeholder="Nama Anda" class="w-full bg-obsidian border border-graphite/80 rounded-xl px-4 py-3 text-sm text-pureWhite focus:outline-none focus:border-brightEmber transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-mutedStone mb-2">Alamat Email</label>
+                                <input type="email" required placeholder="email@perusahaan.com" class="w-full bg-obsidian border border-graphite/80 rounded-xl px-4 py-3 text-sm text-pureWhite focus:outline-none focus:border-brightEmber transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-mutedStone mb-2">Subjek / Perihal</label>
+                            <input type="text" required placeholder="Kebutuhan Layanan / Kerjasama" class="w-full bg-obsidian border border-graphite/80 rounded-xl px-4 py-3 text-sm text-pureWhite focus:outline-none focus:border-brightEmber transition-colors">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-mutedStone mb-2">Pesan Anda</label>
+                            <textarea rows="4" required placeholder="Tuliskan detail kebutuhan atau pertanyaan Anda di sini..." class="w-full bg-obsidian border border-graphite/80 rounded-xl px-4 py-3 text-sm text-pureWhite focus:outline-none focus:border-brightEmber transition-colors"></textarea>
+                        </div>
+
+                        <button id="submit-btn" type="submit" class="w-full py-4 bg-brightEmber hover:bg-yellow-400 text-obsidian font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center space-x-2 hover:-translate-y-0.5">
+                            <span id="btn-text">Kirim Pesan</span>
+                            <i id="btn-icon" class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-obsidian border-t border-graphite/80 text-mutedStone text-xs py-8">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© <span id="current-year"></span> PT. CAHAYA TERANG. All rights reserved.</p>
+            <p class="text-right">Membangun Kepercayaan, Menghadirkan Solusi Berkualitas.</p>
+        </div>
+    </footer>
+
+    <!-- ================= MODAL DETAIL HALAMAN ================= -->
+    <div id="detail-modal" class="fixed inset-0 z-50 hidden bg-obsidian/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-pureWhite rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-mutedStone/30 relative">
+            <button onclick="closeDetailModal()" class="absolute top-4 right-4 w-9 h-9 bg-obsidian/80 text-pureWhite rounded-full flex items-center justify-center hover:bg-brightEmber hover:text-obsidian transition-colors z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="relative h-64 overflow-hidden bg-obsidian">
+                <img id="modal-img" src="" alt="Detail Image" class="w-full h-full object-cover">
+                <span id="modal-category" class="absolute bottom-4 left-4 bg-brightEmber text-obsidian px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-md"></span>
+            </div>
+            <div class="p-8 space-y-4">
+                <h3 id="modal-title" class="text-2xl font-extrabold text-obsidian"></h3>
+                <p id="modal-description" class="text-graphite text-sm leading-relaxed"></p>
+                <div class="pt-4 border-t border-mutedStone/20 flex justify-between items-center">
+                    <span class="text-xs text-mutedStone">PT. Cahaya Terang Sample Page</span>
+                    <a href="#kontak" onclick="closeDetailModal()" class="px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-obsidian bg-brightEmber hover:bg-yellow-400 transition-all rounded-lg">
+                        Konsultasikan Ini
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        }
+
+        // Lightweight Scroll Animation Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal-element');
+            revealElements.forEach(el => observer.observe(el));
+        });
+
+        // Form Submit Simulation
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            const btnText = document.getElementById('btn-text');
+            const btnIcon = document.getElementById('btn-icon');
+            const alertBox = document.getElementById('form-alert');
+
+            btn.disabled = true;
+            btnText.innerText = "Mengirim...";
+            btnIcon.className = "fa-solid fa-spinner fa-spin";
+
+            setTimeout(() => {
+                btn.disabled = false;
+                btnText.innerText = "Kirim Pesan";
+                btnIcon.className = "fa-solid fa-paper-plane";
+
+                alertBox.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+                alertBox.classList.add('bg-green-100', 'text-green-700');
+                alertBox.innerText = "Pesan berhasil terkirim! Tim PT. Cahaya Terang akan segera menghubungi Anda.";
+                
+                document.getElementById('contact-form').reset();
+
+                setTimeout(() => {
+                    alertBox.classList.add('hidden');
+                }, 5000);
+            }, 1200);
+        }
+
+        // Open Detail Modal
+        function openDetailModal(category, title, description, imgSrc) {
+            document.getElementById('modal-category').innerText = category;
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-description').innerText = description + " Ini adalah halaman tampilan sampel (preview mode) untuk menyimulasikan navigasi detail konten PT. Cahaya Terang.";
+            document.getElementById('modal-img').src = imgSrc;
+            document.getElementById('detail-modal').classList.remove('hidden');
+        }
+
+        // Close Detail Modal
+        function closeDetailModal() {
+            document.getElementById('detail-modal').classList.add('hidden');
+        }
+
+        // Set Dynamic Copyright Year
+        document.getElementById('current-year').innerText = new Date().getFullYear();
+    </script>
+</body>
+</html>
